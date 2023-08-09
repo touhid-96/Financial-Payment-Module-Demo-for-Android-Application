@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RecruitmentTask" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.RecruitmentTask" parent="Base.Theme.RecruitmentTask" />
+
+    <style name="Theme.MyTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/black</item>
+    </style>
+</resources>

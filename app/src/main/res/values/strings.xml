@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Recruitment Task</string>
+    <string name="lets_go_btn">Lets Go</string>
+    <string name="bkash_txt">bKash</string>
+    <string name="dashboard_heading">Payment Methods</string>
+    <string name="bkash_heading">bKash Payment</string>
+    <string name="nagad_heading">Nagad Payment</string>
+    <string name="submit_btn">Submit</string>
+</resources>
