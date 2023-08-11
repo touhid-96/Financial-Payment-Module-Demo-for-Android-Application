@@ -6,4 +6,15 @@
     <string name="bkash_heading">bKash Payment</string>
     <string name="nagad_heading">Nagad Payment</string>
     <string name="submit_btn">Submit</string>
+    <string name="report_heading">Community Cash\nTranscript Receipt</string>
+    <string name="source_account_card">Source Account/Card</string>
+    <string name="amount">Amount</string>
+    <string name="date_time">Transaction Date Time</string>
+    <string name="narration">Narration</string>
+    <string name="tran_info">Transaction Info</string>
+    <string name="name">Name</string>
+    <string name="loc">Location</string>
+    <string name="download_btn">Download</string>
+    <string name="share_btn">Share</string>
+    <string name="bank_location">Police Plaza Concord (Level 10, Tower 2) Plot 2, Road 144, Gulshan 1</string>
 </resources>
