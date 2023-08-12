@@ -26,3 +26,9 @@ Its a task application given by CIBL for recruitement.
   - Submit button generates a Dialog receipt which contains all the fields mentioned before with additional two fields (current **Location** and **Date-Time**).
   - Dialog receipt can be shared or downloaded using two seperate buttons.
   - Avoided **EXTERNAL STORAGE PERMISSION** to achieve download and share functionalities.
+
+## Screenshots:
+
+  ![welcome](https://github.com/touhid-96/Recruitment-Task/assets/29010371/ce45d3b7-73df-443c-908b-a66eb9c8dbcb)
+
+  
