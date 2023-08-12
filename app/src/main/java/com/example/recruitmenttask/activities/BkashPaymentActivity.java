@@ -80,6 +80,11 @@ public class BkashPaymentActivity extends AppCompatActivity {
             shareReceiptDialog();
         });
         closeButton.setOnClickListener(v -> {
+            number_ET.setText("");
+            name_ET.setText("");
+            amount_ET.setText("");
+            narration_ET.setText("");
+
             reportDialog.setCancelable(true);
             reportDialog.dismiss();
         });

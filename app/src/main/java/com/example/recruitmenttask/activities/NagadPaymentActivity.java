@@ -32,10 +32,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
 
 public class NagadPaymentActivity extends AppCompatActivity {
@@ -77,6 +79,11 @@ public class NagadPaymentActivity extends AppCompatActivity {
             shareReceiptDialog();
         });
         closeButton.setOnClickListener(v -> {
+            number_ET.setText("");
+            name_ET.setText("");
+            amount_ET.setText("");
+            narration_ET.setText("");
+
             reportDialog.setCancelable(true);
             reportDialog.dismiss();
         });
@@ -95,7 +102,7 @@ public class NagadPaymentActivity extends AppCompatActivity {
 
     private void downloadReceiptDialog() {
         PdfDocument pdfDocument = new PdfDocument();
-        View view = reportDialog.getWindow().getDecorView().findViewById(R.id.payment_receipt_nagad);
+        View view = Objects.requireNonNull(reportDialog.getWindow()).getDecorView().findViewById(R.id.payment_receipt_nagad);
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(view.getWidth(), view.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pageInfo);
 
@@ -107,7 +114,7 @@ public class NagadPaymentActivity extends AppCompatActivity {
         String fileName = String.valueOf(new Random().nextInt(10000));
         File pdfFile = new File(getCacheDir(), "temp_receipt_"+ fileName +".pdf");
         try {
-            OutputStream outputStream = new FileOutputStream(pdfFile);
+            OutputStream outputStream = Files.newOutputStream(pdfFile.toPath());
             pdfDocument.writeTo(outputStream);
             outputStream.close();
         } catch (IOException ex) {
@@ -130,7 +137,7 @@ public class NagadPaymentActivity extends AppCompatActivity {
      */
     private void downloadReceiptDialog_2() {
         PdfDocument pdfDocument = new PdfDocument();
-        View view = reportDialog.getWindow().getDecorView().findViewById(R.id.payment_receipt_nagad);
+        View view = Objects.requireNonNull(reportDialog.getWindow()).getDecorView().findViewById(R.id.payment_receipt_nagad);
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(view.getWidth(), view.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pageInfo);
 
@@ -144,7 +151,7 @@ public class NagadPaymentActivity extends AppCompatActivity {
         String filePath = folderPath + File.separator + "temp_receipt_" + fileName + ".pdf";
         File file = new File(filePath);
         try {
-            OutputStream outputStream = new FileOutputStream(file);
+            OutputStream outputStream = Files.newOutputStream(file.toPath());
             pdfDocument.writeTo(outputStream);
             outputStream.close();
 
@@ -158,7 +165,7 @@ public class NagadPaymentActivity extends AppCompatActivity {
 
     private void shareReceiptDialog() {
         PdfDocument pdfDocument = new PdfDocument();
-        View view = reportDialog.getWindow().getDecorView().findViewById(R.id.payment_receipt_nagad);
+        View view = Objects.requireNonNull(reportDialog.getWindow()).getDecorView().findViewById(R.id.payment_receipt_nagad);
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(view.getWidth(), view.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pageInfo);
 
@@ -170,7 +177,7 @@ public class NagadPaymentActivity extends AppCompatActivity {
         String fileName = String.valueOf(new Random().nextInt(10000));
         File tempFile = new File(getCacheDir(), "temp_receipt_"+ fileName +".pdf");
         try {
-            OutputStream outputStream = new FileOutputStream(tempFile);
+            OutputStream outputStream = Files.newOutputStream(tempFile.toPath());
             pdfDocument.writeTo(outputStream);
             outputStream.close();
         } catch (IOException ex) {
