@@ -24,11 +24,14 @@ Its a task application given by CIBL for recruitement.
   - Dashboard activity with two payment method (bKash & Nagad).
   - Payment activity contains four input fields -> number, name, amount, narration &submit button.
   - Submit button generates a Dialog receipt which contains all the fields mentioned before with additional two fields (current **Location** and **Date-Time**).
-  - Dialog receipt can be shared or downloaded using two seperate buttons.
+  - Dialog receipt can be shared externally or downloaded on device using two seperate buttons.
   - Avoided **EXTERNAL STORAGE PERMISSION** to achieve download and share functionalities.
 
 ## Screenshots:
+  ![welcome](https://github.com/touhid-96/images-readme/blob/main/CIBL/welcome.jpg)
 
-  ![welcome](https://github.com/touhid-96/Recruitment-Task/assets/29010371/ce45d3b7-73df-443c-908b-a66eb9c8dbcb)
+  ![dashboard](https://github.com/touhid-96/images-readme/blob/main/CIBL/dashboard.jpg)
 
-  
+  ![payment](https://github.com/touhid-96/images-readme/blob/main/CIBL/bkash.jpg)
+
+  ![dialog](https://github.com/touhid-96/images-readme/blob/main/CIBL/Dialog.jpg)
