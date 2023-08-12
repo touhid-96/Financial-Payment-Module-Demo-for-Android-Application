@@ -45,9 +45,11 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_marginStart="20dp"
+                            android:orientation="vertical"
+                            android:layout_weight="1">
 
                             <ImageView
                                 android:layout_width="150dp"
@@ -55,12 +57,23 @@
                                 android:src="@drawable/bkash_money_send_icon">
                             </ImageView>
 
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:text="bKash Fund Transfer"
+                                android:textSize="12sp"
+                                android:textAlignment="center">
+                            </TextView>
+
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:layout_weight="1">
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -72,8 +85,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="20dp"
+                                android:textSize="12sp"
                                 android:text="@string/bank_location"
-                                android:textAlignment="center">
+                                android:textAlignment="textEnd">
                             </TextView>
 
                         </LinearLayout>
