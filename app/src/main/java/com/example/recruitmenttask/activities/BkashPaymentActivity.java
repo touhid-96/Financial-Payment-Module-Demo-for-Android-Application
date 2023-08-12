@@ -33,10 +33,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Random;
 
 public class BkashPaymentActivity extends AppCompatActivity {
@@ -45,7 +47,6 @@ public class BkashPaymentActivity extends AppCompatActivity {
     private Button downloadReceipt, shareReceipt;
     private ImageView closeButton;
     private TextView sourceAccNo_TV, amount_TV, dateTime_TV, narration_TV, bkashNo_TV, name_TV, address_TV;
-    private AlertDialog progressDialog;
     private Dialog reportDialog;
     FusedLocationProviderClient fusedLocationProviderClient;
     private final int REQUEST_CODE = 100;
@@ -59,10 +60,6 @@ public class BkashPaymentActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        dialogBuilder.setView(R.layout.layout_progress_dialog);
-        progressDialog = dialogBuilder.create();
-
         reportDialog = new Dialog(this);
         reportDialog.setContentView(R.layout.layout_bkash_report_dialog);
         sourceAccNo_TV = (TextView) reportDialog.findViewById(R.id.src_acc_no_bkash);
@@ -94,7 +91,7 @@ public class BkashPaymentActivity extends AppCompatActivity {
         amount_ET = (EditText) findViewById(R.id.bkash_amount);
         narration_ET = (EditText) findViewById(R.id.bkash_narration);
 
-        Button submitBtn = (Button) findViewById(R.id.submit_button);
+        Button submitBtn = (Button) findViewById(R.id.bkash_submit_button);
         submitBtn.setOnClickListener(v -> {
             getCurrentLocation();
         });
@@ -102,7 +99,7 @@ public class BkashPaymentActivity extends AppCompatActivity {
 
     private void downloadReceiptDialog() {
         PdfDocument pdfDocument = new PdfDocument();
-        View view = reportDialog.getWindow().getDecorView().findViewById(R.id.payment_receipt);
+        View view = Objects.requireNonNull(reportDialog.getWindow()).getDecorView().findViewById(R.id.payment_receipt_bkash);
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(view.getWidth(), view.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pageInfo);
 
@@ -114,7 +111,7 @@ public class BkashPaymentActivity extends AppCompatActivity {
         String fileName = String.valueOf(new Random().nextInt(10000));
         File pdfFile = new File(getCacheDir(), "temp_receipt_"+ fileName +".pdf");
         try {
-            OutputStream outputStream = new FileOutputStream(pdfFile);
+            OutputStream outputStream = Files.newOutputStream(pdfFile.toPath());
             pdfDocument.writeTo(outputStream);
             outputStream.close();
         } catch (IOException ex) {
@@ -137,7 +134,7 @@ public class BkashPaymentActivity extends AppCompatActivity {
      */
     private void downloadReceiptDialog_2() {
         PdfDocument pdfDocument = new PdfDocument();
-        View view = reportDialog.getWindow().getDecorView().findViewById(R.id.payment_receipt);
+        View view = reportDialog.getWindow().getDecorView().findViewById(R.id.payment_receipt_bkash);
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(view.getWidth(), view.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pageInfo);
 
@@ -165,7 +162,7 @@ public class BkashPaymentActivity extends AppCompatActivity {
 
     private void shareReceiptDialog() {
         PdfDocument pdfDocument = new PdfDocument();
-        View view = reportDialog.getWindow().getDecorView().findViewById(R.id.payment_receipt);
+        View view = Objects.requireNonNull(reportDialog.getWindow()).getDecorView().findViewById(R.id.payment_receipt_bkash);
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(view.getWidth(), view.getHeight(), 1).create();
         PdfDocument.Page page = pdfDocument.startPage(pageInfo);
 
@@ -177,7 +174,7 @@ public class BkashPaymentActivity extends AppCompatActivity {
         String fileName = String.valueOf(new Random().nextInt(10000));
         File tempFile = new File(getCacheDir(), "temp_receipt_"+ fileName +".pdf");
         try {
-            OutputStream outputStream = new FileOutputStream(tempFile);
+            OutputStream outputStream = Files.newOutputStream(tempFile.toPath());
             pdfDocument.writeTo(outputStream);
             outputStream.close();
         } catch (IOException ex) {
@@ -268,11 +265,6 @@ public class BkashPaymentActivity extends AppCompatActivity {
 
     private void makeToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    private void showProgressDialog(Boolean yes) {
-        if (yes) progressDialog.show();
-        else progressDialog.dismiss();
     }
 
     private void askPermission() {
