@@ -28,10 +28,10 @@ Its a task application given by CIBL for recruitement.
   - Avoided **EXTERNAL STORAGE PERMISSION** to achieve download and share functionalities.
 
 ## Screenshots:
-  ![welcome](https://github.com/touhid-96/images-readme/blob/main/CIBL/welcome.jpg)
+  ![welcome](https://github.com/touhid-96/Recruitment-Task/assets/29010371/0fb547c8-746d-4716-9858-1e470f0be552)
 
-  ![dashboard](https://github.com/touhid-96/images-readme/blob/main/CIBL/dashboard.jpg)
+  ![dashboard](https://github.com/touhid-96/Recruitment-Task/assets/29010371/c57396e6-ad95-4c31-a903-b464f7da70e1)
 
-  ![payment](https://github.com/touhid-96/images-readme/blob/main/CIBL/bkash.jpg)
+  ![payment](https://github.com/touhid-96/Recruitment-Task/assets/29010371/6caa1191-a022-40db-8352-6dd12c5136c0)
 
-  ![dialog](https://github.com/touhid-96/images-readme/blob/main/CIBL/Dialog.jpg)
+  ![Report](https://github.com/touhid-96/Recruitment-Task/assets/29010371/a51f3702-9535-4ea6-8a86-38e313da0ac7)
